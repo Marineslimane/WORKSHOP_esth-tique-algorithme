@@ -1,4 +1,6 @@
-Atelier1.2 : Dessin d'une fleur avec plusieurs étages de pétales qui tournent en fonction de la position de la souris sur l'axe x. Les pétales sont réalisées grâce à des courbes de Bézier.
+Atelier 1.1 : Figure 5 et coloration avec dégradé
+
+Atelier 1.2 : Dessin d'une fleur avec plusieurs étages de pétales qui tournent en fonction de la position de la souris sur l'axe x. Les pétales sont réalisées grâce à des courbes de Bézier.
 
 Code visualisable sur navigateur.
 
