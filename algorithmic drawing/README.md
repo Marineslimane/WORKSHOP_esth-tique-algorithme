@@ -3,6 +3,7 @@ Atelier 1.1 : Figure 5 et coloration avec dégradé
 Atelier 1.2 : Dessin d'une fleur avec plusieurs étages de pétales qui tournent en fonction de la position de la souris sur l'axe x. Les pétales sont réalisées grâce à des courbes de Bézier.
 
 Code visualisable sur navigateur.
+Pour Go Live, depuis VsCode, ouvrir directement le dossier atelier1.1 ou celui atelier1.2 pour visualiser sur web, pas le dossier algorithmic drawing en entier. 
 
 Outils :
 - Processing
