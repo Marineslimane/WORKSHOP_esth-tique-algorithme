@@ -2,6 +2,7 @@ Description :
 Visualisation de musiques grâce à un automate cellulaire qui se base sur le jeu de la vie. La génération des cellules se fait en fonction des fréquences (basses, moyennes) de la musique et des amplitudes.
 
 Indication :
+Au départ, cliquer sur l'écran pour lancer la musique puis cliquer à nouveau sur l'écran pour mettre en pause la musique et le visuel. A chaque pause, on obtient une sorte de screenshot du visuel qui donne un rendu différent à chaque fois. Le visuel se randomise à chaque pause puis reprise.
 Les valeurs liées aux couleurs notamment dans fill(), et aux paramètres de la musique choisis pour la visualisation peuvent tous être modifiées dans le code pour obtenir des résultats bien diffèrents en fonction des préférences graphiques et des aspects de la musique que l'on souhaite mettre en avant. La taille des cellules peut également être modifiée...
 
 -> Pour changer de musique, importer la nouvelle musique sous format mp3 dans le dossier musics et changer le nom de fichier dans preload() dans music_visual.js. Par défaut, il y a 2 musiques exemples dans musics. Elles donnent des résultats visuels distincts.
