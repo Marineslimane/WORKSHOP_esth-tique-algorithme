@@ -1,0 +1,35 @@
+    body 
+    {
+      padding: 0;
+      margin: 0;
+  
+    }
+
+    #container 
+    {
+      padding:0;
+      margin:0;
+      padding-top : 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #canvas
+    {
+      padding:0;
+      margin:0;
+      align-items:center;
+      justify-content:center;
+      padding-bottom: 20px;
+    }
+
+    #poem
+    {
+      text-align:left;
+      padding :0;
+      margin:0;
+    }
+
+
+
