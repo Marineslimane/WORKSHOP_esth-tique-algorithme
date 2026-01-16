@@ -1,2 +1,2 @@
-## Mon projet préféré : Celui sur l'automate cellulaire
+Mon projet préféré : Celui sur l'automate cellulaire
 
