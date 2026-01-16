@@ -1,8 +1,12 @@
 let song, fft, amp; // variables pour p5.sound
 
-let cell_size = 10; // taille des cellules en pixel, modifiable
+let cell_size = 10; // taille des cellules en pixel, MODIFIABLE
+
+// dimensions de la grille : 
 let column_nb; 
 let row_nb;
+
+// tableaux des cellules courantes et de la génération suivante : 
 let current_cells = [];
 let next_cells = [];
 
@@ -11,13 +15,13 @@ let max_neighbours = 3; // nb maximum de voisins que doit avoir une cellule pour
 let birth = 3; // nb de voisins nécessaires à une case pour qu'elle naisse
 let birth_chance = 1.0; // probabilité qu'une naissance arrive
 
-let canvas; // utile pour le max circulaire
+let canvas; // utile pour le mask circulaire en HTML
 
 function preload() 
 {
     /* précharge la musique avant que setup() se lance */
 
-    song = loadSound('musics/Sabrina Carpenter - Dont Smile.mp3'); // changer la musique ICI
+    song = loadSound('musics/Saint Levant - EXILE.mp3'); // changer la musique ICI
 }
 
 function setup()
@@ -25,8 +29,10 @@ function setup()
     /* prépare le terrain : récupère les informations sur la musique et initialise les tableaux et les valeurs de column_nb et row_nb */
 
     frameRate(20); // vitesse de draw() en fps (frames per second), attention à ne pas trop l'augmenter
+
     canvas = createCanvas(400, 400);
-    canvas.parent("canvas"); // réfère à la div qui sert de mask pour l'affichage circulaire
+    canvas.parent("canvas"); // réfère à la div qui sert de mask pour l'affichage circulaire en HTML
+
     colorMode(HSB, 360, 100, 100, 100);
 
     // pour la musique :
@@ -60,7 +66,7 @@ function draw()
     // pour la musique : 
     let level = amp.getLevel(); // volume global du son
     let bass = fft.getEnergy("bass"); // basses fréquences
-    let mid  = fft.getEnergy("mid"); // moyennes fréquences : la voix plutot si voix dans la musique
+    let mid  = fft.getEnergy("mid"); // moyennes fréquences : la voix, plutot (si voix dans la musique)
     // let treble  = fft.getEnergy("treble"); // hautes fréquences
 
     min_neighbours = floor(map(bass, 0, 255, 1, 3)); // bass & mid prenent des valeurs entre 0 et 255 et ici elles sont converties en un nombre de voisins pour avoir une représentation visuelle de l'évolution de la musique
@@ -93,9 +99,9 @@ function draw()
             {
                 let x = column * cell_size // position x de la cellule
                 let y = row * cell_size // position y de la cellule
-                let r = cell_size * random(0.5, 1.5);  // rayon choisie pour le cercle : random permet d'avoir de l'aléatoire sur le rayon pour un effet plus vivant et moins répétitif
+                let r = cell_size * random(0.5, 1.5);  // rayon choisie pour le cercle : random permet d'avoir de l'aléatoire sur le rayon pour un effet plus vivant/organique et moins répétitif
                 
-                circle(x, y, r);
+                circle(x, y, r); // cellule circulaire
             }
         }
     }
@@ -122,6 +128,7 @@ function mousePressed()
 
 function toggleMusic() 
 {
+
   if (song.isPlaying()) {
     song.pause();
     noLoop(); // stop l'animation
@@ -153,6 +160,7 @@ function generate()
     {
         for (let row = 0; row < row_nb; row++) 
         {
+            // récupération des indices de position des voisins :
             let left = (column - 1 + column_nb) % column_nb;
 
             let right = (column + 1) % column_nb;
@@ -161,6 +169,7 @@ function generate()
 
             let below = (row + 1) % row_nb;
 
+            // nombre de voisins de la cellule :
             let neighbours =
                 current_cells[left][above] +
                 current_cells[column][above] +
@@ -171,8 +180,8 @@ function generate()
                 current_cells[column][below] +
                 current_cells[right][below];
 
-            // règles : 
-            let alive = current_cells[column][row] === 1;
+            // REGLES de l'automate : 
+            let alive = current_cells[column][row] === 1; // booléen indiquant si la cellule est vivante ou non 
 
             if (alive && (neighbours < min_neighbours || neighbours > max_neighbours)) // si la cellule est vivante et si elle a trop peu ou trop de voisins
             {

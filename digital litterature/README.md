@@ -6,7 +6,7 @@ Cliquer pour regénèrer un nouveau poème.
 Modifier le chemin dans preload() pour changer l'image.
 
 Améliorations futures : 
-Prendre en compte plus de paramètres, faire une meilleure sélectionner de mots, ajouter plus de condition à la sélection des mots, utiliser des algorithmes type IA pour prendre plus en compte le contexte de l'image...
+Prendre en compte plus de paramètres, faire une meilleure sélection de mots, ajouter plus de condition à la sélection des mots, améliorer l'interface, utiliser des algorithmes type IA pour prendre plus en compte le contexte de l'image...
 
 Crédits : 
 - p5 Reference : 

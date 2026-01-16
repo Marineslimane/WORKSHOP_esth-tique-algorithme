@@ -129,7 +129,7 @@ function drawRadialStar(center_x, center_y, outer_radius, inner_radius, outer_po
     */
 
     push();
-    translate(center_x, center_y);
+    translate(center_x, center_y); // nouveau centre
 
     stroke(220, 180, 90);
     noFill();
@@ -199,7 +199,7 @@ function mouseWheel(event)
         zoom *= zoom_factor; // zoom
     }
 
-    zoom = constrain(zoom, 0.01, 10000); // empêche le zoom de sortir des limites : on ne peut pas dézoomer à l'infini
+    zoom = constrain(zoom, 0.01, 50); // empêche le zoom de sortir des limites : on ne peut pas dézoomer à l'infini
     redraw(); // nouveau dessin avec le nouveau zoom
 
     return false;
